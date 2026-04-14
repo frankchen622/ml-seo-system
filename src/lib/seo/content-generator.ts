@@ -91,7 +91,7 @@ Return JSON only:
 
 // 调用 AI API（支持 Claude 和 OpenAI）
 async function callAI(prompt: string, model?: string): Promise<string> {
-  const aiModel = model || process.env.AI_MODEL || 'claude-sonnet-4-20250514'
+  const aiModel = model || process.env.AI_MODEL || 'claude-sonnet-4-6'
 
   if (aiModel.startsWith('claude')) {
     return callClaude(prompt, aiModel)
@@ -216,7 +216,7 @@ export async function generateBatch(count = 3): Promise<{
         content: article.content,
         word_count: article.word_count,
         quality_score: article.quality_score,
-        generation_model: process.env.AI_MODEL || 'claude-sonnet-4-20250514',
+        generation_model: process.env.AI_MODEL || 'claude-sonnet-4-6',
         status: 'draft',
       })
 
