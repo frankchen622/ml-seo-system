@@ -1,0 +1,28 @@
+{
+  "crons": [
+    {
+      "path": "/api/seo/cron/discover-keywords",
+      "schedule": "0 9 * * 1"
+    },
+    {
+      "path": "/api/seo/cron/generate-content",
+      "schedule": "0 10 * * *"
+    },
+    {
+      "path": "/api/seo/cron/publish",
+      "schedule": "0 14 * * *"
+    },
+    {
+      "path": "/api/seo/cron/collect-data",
+      "schedule": "0 8 * * 0"
+    },
+    {
+      "path": "/api/seo/cron/update-weights",
+      "schedule": "0 9 * * 0"
+    },
+    {
+      "path": "/api/seo/cron/optimize",
+      "schedule": "0 10 * * 0"
+    }
+  ]
+}
