@@ -200,8 +200,8 @@ export async function generateBatch(count = 3): Promise<{
     try {
       const article = await generateArticle(kw.keyword, kw.search_intent || 'informational')
 
-      // 质量分低于 0.6 不入库
-      if (article.quality_score < 0.6) {
+      // 质量分低于 0.4 不入库（初期放宽阈值，后续根据数据调整）
+      if (article.quality_score < 0.4) {
         rejected++
         continue
       }
