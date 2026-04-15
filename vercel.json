@@ -2,23 +2,23 @@
   "crons": [
     {
       "path": "/api/seo/cron/collect",
-      "schedule": "0 8 * * 1"
+      "schedule": "0 0 * * 1"
     },
     {
       "path": "/api/seo/cron/analyze",
-      "schedule": "0 10 * * 1"
+      "schedule": "0 2 * * 1"
     },
     {
       "path": "/api/seo/cron/generate",
-      "schedule": "0 10 * * 2-5"
+      "schedule": "0 2 * * *"
     },
     {
       "path": "/api/seo/cron/publish",
-      "schedule": "0 14 * * 2-5"
+      "schedule": "0 6 * * *"
     },
     {
       "path": "/api/seo/cron/monitor",
-      "schedule": "0 8 * * 0"
+      "schedule": "0 0 * * 0"
     }
   ]
 }
