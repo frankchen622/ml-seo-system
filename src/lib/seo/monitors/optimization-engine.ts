@@ -24,7 +24,7 @@ export async function analyzeForClient(clientId: string): Promise<{
   // 1. 有展现无点击 → 优化标题和 meta
   const { data: articles } = await supabaseAdmin
     .from('articles')
-    .select('id, title, slug, keyword_id, published_at')
+    .select('id, title, slug, keyword_id, published_at, created_at')
     .eq('client_id', clientId)
     .eq('status', 'published')
 
