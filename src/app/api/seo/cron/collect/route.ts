@@ -1,6 +1,7 @@
-// Cron: 阶段四 - 发布到 WordPress
+// Cron: 阶段一 - 数据采集（GSC + GA4）
 import { NextRequest, NextResponse } from 'next/server'
-import { publishBatch } from '@/lib/seo/publishers/publish-scheduler'
+import { collectGSCData } from '@/lib/seo/collectors/gsc-collector'
+import { collectGA4Data } from '@/lib/seo/collectors/ga4-collector'
 
 export async function POST(req: NextRequest) {
   const auth = req.headers.get('authorization')
@@ -9,8 +10,14 @@ export async function POST(req: NextRequest) {
   }
 
   try {
-    const result = await publishBatch()
-    return NextResponse.json({ success: true, ...result })
+    const gsc = await collectGSCData()
+    const ga4 = await collectGA4Data()
+
+    return NextResponse.json({
+      success: true,
+      gsc,
+      ga4,
+    })
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 })
   }
