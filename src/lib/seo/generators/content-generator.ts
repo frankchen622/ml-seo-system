@@ -188,9 +188,10 @@ export async function generateForClient(
       }
     } catch (err: any) {
       console.error(`Failed to generate for keyword "${kw.keyword}":`, err.message)
+      // 失败时重置为 discovered，下次可以重试
       await supabaseAdmin
         .from('keywords')
-        .update({ status: 'queued', updated_at: new Date().toISOString() })
+        .update({ status: 'discovered', updated_at: new Date().toISOString() })
         .eq('id', kw.id)
     }
   }
