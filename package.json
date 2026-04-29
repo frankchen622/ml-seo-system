@@ -21,6 +21,6 @@
     "@types/react": "^19.2.14"
   },
   "engines": {
-    "node": "20.x"
+    "node": ">=20.x"
   }
 }
